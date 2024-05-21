@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense, lazy } from 'react'
+import { Routes, Route } from 'react-router-dom'
 
-function App() {
+const ThreeTest = lazy(() => import('./views/ThreeTest'))
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Suspense>
+      <Routes>
+        <Route path="/three-test" element={ <ThreeTest /> } ></Route>
+      </Routes>
+    </Suspense>
+  )
 }
 
-export default App;
+export default App
